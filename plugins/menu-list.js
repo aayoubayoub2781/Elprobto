@@ -7,6 +7,11 @@ const defaultMenu = {
 	before: `
  *Salam* : %name
  *uptime* : %uptime
+ *Level :* ${level}
+  *Exp :* ${exp}
+  *Diamantes :* ${limit}
+  *Premium :* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌')}
+  *Registrado :* ${user.registered === true ? '✅' : '❌'}
 %readMore`,
 	header: `┏━━⬣ ≼ %category `,
 	body: "┃ ⎔ %cmd ",
