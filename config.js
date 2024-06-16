@@ -13,21 +13,10 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 // [ES] > Agrega el número que será Bot y los que serán propietarios.
 // [EN] > Add the number that will be Bot and those that will be owners.
 global.owner = [
-["212761524771", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], // 
-["212696262219"], 
-[""], 
-[""],
-[""],
-[""],
-[""],
-[""],
-[""],
-[''],
-[""],
-[""],
-[""],
-[""],
-[""]]
+["212696262219", '𝙊𝙬𝙣𝙚𝙧', false], //𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
+["212705776824"], 
+["212660958031"],
+["212641207087"]]
 
 global.mods = []
 global.prems = []
@@ -57,7 +46,7 @@ global.confirmCode = "" // No tocar esto : Do not touch this line
 // ❰❰ IDIOMAS DISPONIBLES : AVAILABLE LANGUAGES ❱❱
 // Español 👉 es           
 // English 👉 en
-global.lenguajeGB = es
+global.lenguajeGB = en
 global.mid = esDefault
 global.version_language = '1.0 (MID-GB)'
 
@@ -135,8 +124,8 @@ global.desc2 = '' // Add long description (90 caractres max) (Este parámetro se
 global.country = '' // Add country, example: 🇪🇨
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
-global.packname = `╭ FASI -MD\n┃\n┃ » 𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖:\n┃ @globalgb\n┃\n┃ » 𝚈𝚘𝚞𝚃𝚞𝚋𝚎:\n┃ @gatadios\n┃\n┃ » 𝙸𝚗𝚜𝚝𝚊𝚐𝚛𝚊𝚖:\n┃ @not_es.x4r\n╰━━━━━━━━•` //"fasi-md
-global.author = ` ╭ FASI -MD✓\n ┃\n ┃ » 𝙶𝚒𝚝𝙷𝚞𝚋:\n ┃ rossimoto-Li\n ┃\n ┃ ⊹ Super Bot WhatsApp.\n ┃\n ┃ ♡ Apoyo\n ┃ » 𝙿𝚊𝚢𝙿𝚊𝚕:\n ┃ @OficialGD\n ╰━━━━━━━━•` //"fasi-md"
+global.packname = `╭  JEEN-MD\n┃\n┃ » 𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖:\n┃ @\n┃\n┃ » 𝚈𝚘𝚞𝚃𝚞𝚋𝚎:\n┃ @\n┃\n┃ » 𝙸𝚗𝚜𝚝𝚊𝚐𝚛𝚊𝚖:\n┃ @majnon._.98\n╰━━━━━━━━•` //"JEEN"
+global.author = ` ╭ Majnon ✓\n ┃\n ┃ » 𝙶𝚒𝚝𝙷𝚞𝚋:\n ┃ \n ┃\n ┃ ⊹ Super Bot WhatsApp.\n ┃\n ┃ ♡ Apoyo\n ┃ » 𝙿𝚊𝚢𝙿𝚊𝚕:\n ┃ @\n ╰━━━━━━━━•` //"MAJNON"
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // [ES] > INFORMACIÓN DE VERSIONES DEL BOT, POR FAVOR 
@@ -144,7 +133,12 @@ global.author = ` ╭ FASI -MD✓\n ┃\n ┃ » 𝙶𝚒𝚝𝙷𝚞𝚋:\n ┃
 // [EN] > BOT VERSION INFORMATION, PLEASE KEEP THIS UNCHANGED, WE STRIVE DAILY TO PROVIDE YOU WITH A BOT FOR THE COMMUNITY, BE GRATEFUL
 global.vs = "1.7.0"
 global.vsJB = "2.5 (Beta)"
-global.gt = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿"
+global.gt = "JEEN-MD"
+
+global.thumbnailUrl = [
+  'https://telegra.ph/file/8bbe15606c6b379c70c21.jpg', 
+  'https://telegra.ph/file/121e78ca816acd6e3f7ee.jpg'
+ ];
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
@@ -170,9 +164,9 @@ global.eg = '╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎�
 global.exito = eg
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-global.wm = "FASI-𝙈𝘿 :  FASI-MD"
-global.igfg = "FASI-𝙈𝘿"
-global.nomorown = ""
+global.wm = "JEEN-MD : MAJNON"
+global.igfg = "JEEN-MD"
+global.nomorown = "+212696262219"
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
