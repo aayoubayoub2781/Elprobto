@@ -1,247 +1,143 @@
-import { Styles } from "../lib/Styles.js";
-import fs from "fs";
-import fetch from "node-fetch";
-import { xpRange } from "../lib/levelling.js";
-import moment from "moment-timezone";
-const defaultMenu = {
-	before: `
- *Salam* : %name
- *uptime* : %uptime
- *Level :* ${level}
-  *Exp :* ${exp}
-  *Diamantes :* ${limit}
-  *Premium :* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌')}
-  *Registrado :* ${user.registered === true ? '✅' : '❌'}
-%readMore`,
-	header: `┏━━⬣ ≼ %category `,
-	body: "┃ ⎔ %cmd ",
-	footer: "┗━━⬣  ",
-	after: `*FASI-MD*`,
+import fetch from 'node-fetch';
+import jimp from 'jimp'
+import PhoneNumber from 'awesome-phonenumber'
+const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
+  if (usedPrefix == 'a' || usedPrefix == 'A') return;
+  try {
+    const pp = imagen4;
+    // let vn = './media/menu.mp3'
+    const img = './Menu2.jpg';
+    const d = new Date(new Date + 3600000);
+    const locale = 'es-ES';
+    const week = d.toLocaleDateString(locale, {weekday: 'long'});
+    const date = d.toLocaleDateString(locale, {day: '2-digit', month: '2-digit', year: 'numeric'});
+    const _uptime = process.uptime() * 1000;
+    const uptime = clockString(_uptime);
+    const user = global.db.data.users[m.sender];
+    const {money, joincount} = global.db.data.users[m.sender];
+    const {exp, limit, level, role} = global.db.data.users[m.sender];
+    const rtotalreg = Object.values(global.db.data.users).filter((user) => user.registered == true).length;
+    const rtotal = Object.entries(global.db.data.users).length || '0'
+    const more = String.fromCharCode(8206);
+    const readMore = more.repeat(850);
+    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+    const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    m.react('📚');
+    const document = doc[Math.floor(Math.random() * doc.length)];
+    const str = `▢ *Hello 👋,* ${taguser}
+    
+ _*< Info FASI-MD />*_
+    
+ ▢ *Totalusers : ${Object.keys(global.db.data.users).length}*
+
+ _*< Your Accounte />*_
+
+ ▢ *Level :* ${level}
+ ▢ *Exp :* ${exp}
+ ▢ *Diamantes :* ${limit}
+ ▢ *Premium :* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌')}
+ ▢ *Registrado :* ${user.registered === true ? '✅' : '❌'}\n%readMore
+ 
+_*< Bot Commnds />*_
+
+▢ _/ping_
+
+_*< downloade Commnds />*_
+
+▢ _/apk_
+▢ _/apk2_
+▢ _/apkpure_
+▢ _/imganime2_
+▢ _/imagine2_
+▢ _/fb_
+▢ _/2ytmp4_
+▢ _/2ytmp4_
+▢ _/play_
+▢ _/ytmp3_
+▢ _/ytmp4_
+▢ _/yts_
+▢ _/ig_
+▢ _/img_
+▢ _/tiktok_
+▢ _/pinterest3_
+
+_*< Ai Commnds />*_
+
+▢ _/imagine_
+▢ _/imganime_
+▢ _/hdr_
+▢ _/bard_
+▢ _/bard2 (beta)_
+▢ _/bardimg_
+▢ _/ai_
+▢ _/chatgpt_
+▢ _/hdr_
+▢ _/ocr_
+▢ _/tr <code>_
+▢ _/cuturl_
+
+_*< Islamic Commnds />*_
+
+▢ _/ayati_
+▢ _/adhan_
+
+_*< Accounte Commnds />*_
+
+▢ _/make-account_
+▢ _/serie_
+▢ _/del-account_
+▢ _/transfer_
+▢ _/info_
+▢ _/buy_
+▢ _/levelup_
+▢ _/gift_
+
+_*< Other Commnds />*_
+▢ _/math_
+▢ _/owner_
+▢ _/welcome_
+▢ _/top_`.trim().replace('%readMore', readMore);
+    if (m.isGroup) {
+      // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
+      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
+      // ... الجزء الذي بدأت في كتابته
+      conn.sendMessage(m.chat, {image: await genProfile(conn, m), caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak2});
+    } else {
+      // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
+      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
+      conn.sendMessage(m.chat, {image: await genProfile(conn, m), caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak2});
+
+    }
+  } catch {
+    conn.reply(m.chat, '*[ ℹ️ ] Este menu tiene un error interno, por lo cual no fue posible enviarlo.*', m);
+  }
 };
-const handler = async (m, { conn, usedPrefix: _P, isOwner, isPremium }) => {
-	const Help = Object.values(global.plugins)
-		.filter((p) => (isOwner ? !p?.disabled : !p?.disabled && !p?.owner))
-		.map((p) => {
-			return {
-				help: Array.isArray(p?.help) ? p?.help : p?.help ? [p?.help] : "",
-				tags: Array.isArray(p?.tags) ? p?.tags[0] : p?.tags ? [p?.tags] : "",
-				prefix: p?.customPrefix ? true : false,
-				limit: p?.limit,
-				premium: p?.premium,
-				enabled: !p?.disabled,
-				owner: isOwner ? p.owner : false,
-			};
-		});
-	let tags = {};
-	Help.forEach((p) => {
-		if (p.tags && p.tags.length) {
-			Object.assign(tags, {
-				[p.tags]: Array.isArray(p.tags)
-					? p.tags.map(
-							(v) =>
-								v.charAt(v.length >= 1 ? 0 : v.length).toUpperCase() +
-								v.slice(1),
-					  )
-					: [p.tags][0],
-			});
-		}
-	});
-	conn.menu = conn.menu ? conn.menu : {};
-	const before = conn.before || defaultMenu.before;
-	const header = conn.header || defaultMenu.header;
-	const body = conn.body || defaultMenu.body;
-	const footer = conn.footer || defaultMenu.footer;
-	const after = conn.after || defaultMenu.after;
-
-	let text = [
-		before,
-		...Object.keys(tags)
-			.sort()
-			.map((tag) => {
-				return header.replace(
-					/%category/g,
-					`${tags[tag]}` +
-						" ≽\n" +
-						[
-							...Help.filter(
-								(menu) =>
-									menu.tags &&
-									menu.tags.includes(tag) &&
-									menu.help &&
-									!menu.owner,
-							).map((menu) => {
-								return menu.help
-									.map((help) => {
-										return body
-											.replace(/%cmd/g, menu.prefix ? help : "%P" + help)
-											.replace(/%islimit/g, menu.limit ? "(🅛)" : "")
-											.replace(/%isPremium/g, menu.premium ? "(🅟)" : "")
-											.trim();
-									})
-									.join("\n");
-							}),
-							footer,
-						].join("\n"),
-				);
-			}),
-		after,
-	].join("\n");
-	text =
-		typeof conn.menu === "string"
-			? conn.menu
-			: typeof conn.menu === "object"
-			? text
-			: "";
-	const name = await conn.getName(m.sender);
-	let wibh = moment.tz("Africa/Casablanca").format("HH");
-	let wibm = moment.tz("Africa/Casablanca").format("mm");
-	let wibs = moment.tz("Africa/Casablanca").format("ss");
-	let wit = moment.tz("Africa/Casablanca").format("HH:mm:ss");
-	let wita = moment.tz("Africa/Casablanca").format("HH:mm:ss");
-	let wktuwib = `${wibh}.${wibm}.${wibs}`;
-
-	const more = String.fromCharCode(8206);
-	const readMore = more.repeat(4001);
-	const mp3 = "http://cdn.sazumi.moe/file/8r7rms.m4a";
-	let _muptime;
-	if (process.send) {
-		process.send("uptime");
-		_muptime =
-			(await new Promise((resolve) => {
-				process.once("message", resolve);
-				setTimeout(resolve, 1000);
-			})) * 1000;
-	}
-	const muptime = clockString(_muptime);
-	let uptime = `${muptime}`;
-
-	let d = new Date(new Date() + 3600000);
-	let locale = "ar";
-	let week = d.toLocaleDateString(locale, { weekday: "long" });
-	let date = d.toLocaleDateString(locale, {
-		day: "numeric",
-		month: "long",
-		year: "numeric",
-	});
-	let dateIslamic = Intl.DateTimeFormat(locale + "-TN-u-ca-islamic", {
-		day: "numeric",
-		month: "long",
-		year: "numeric",
-	}).format(d);
-	let time = d.toLocaleTimeString(locale, {
-		hour: "numeric",
-		minute: "numeric",
-		second: "numeric",
-	});
-	let selamat = `${ucapan()}`;
-	let tagme = `@${m.sender.replace(/@.+/, "")}`;
-	let stats = `${isOwner ? "Owner" : isPremium ? "Premium" : "Free"}`;
-	let tagname = `@${m.sender.replace(/@.+/, "")}`;
-	let mode = global.opts["self"] ? "Private" : "Publik";
-
-	const replace = {
-		"%": "%",
-		P: _P,
-		name,
-		wktuwib,
-		readMore,
-		tagname,
-		mode,
-		selamat,
-		uptime,
-		stats,
-		week,
-		date,
-		tagme,
-		dateIslamic,
-		who: "@" + m.sender.replace(/[^0-9]/g, ""),
-	};
-	text = text.replace(
-		new RegExp(
-			`%(${Object.keys(replace)
-				.sort((a, b) => b.length - a.length)
-				.join("|")})`,
-			"g",
-		),
-		(_, name) => "" + replace[name],
-	);
-
-	await conn
-		.sendMessage(
-			m.chat,
-			{
-				text: Styles(text),
-				mentions: [m.sender],
-				contextInfo: {
-					forwardingScore: 9999999,
-					isForwarded: false,
-					mentionedJid: [m.sender],
-					externalAdReply: {
-						showAdAttribution: false,
-						renderLargerThumbnail: true,
-						title: `إضغط هنا لمتابعة صانع البوت في حسابه `,
-						containsAutoReply: true,
-						mediaType: 1,
-						thumbnailUrl: `https://telegra.ph/file/12ab80b6775fa7311f098.jpg`,
-						mediaUrl: ``,
-						sourceUrl: "https://instagram.com/noureddine_ouafy",
-					},
-				},
-			},
-			{ quoted: m },
-		)
-		.then(() =>
-			conn.sendMessage(
-				m.chat,
-				{
-					audio: { url: mp3 },
-					ptt: true,
-					mimetype: "audio/mpeg",
-					fileName: "vn.mp3",
-					waveform: [
-						0, 3, 58, 44, 35, 32, 2, 4, 31, 35, 44, 34, 48, 13, 0, 54, 49, 40,
-						1, 44, 50, 51, 16, 0, 3, 40, 39, 46, 3, 42, 38, 44, 46, 0, 0, 47, 0,
-						0, 46, 19, 20, 48, 43, 49, 0, 0, 39, 40, 31, 18, 29, 17, 25, 37, 51,
-						22, 37, 34, 19, 11, 17, 12, 16, 19,
-					],
-				},
-				{ quoted: m },
-			),
-		);
-};
-
-handler.help = ["menuaall"];
-handler.command = ["menuall","menu"];
+handler.command = /^(allmenu)$/i;
 
 export default handler;
-
-function ucapan() {
-	const time = moment.tz("Africa/Casablanca").format("HH");
-	let res = "♥";
-	if (time >= 4) {
-		res = "(صباح الخير)";
-	}
-	if (time >= 10) {
-		res = "(صباح الخير)";
-	}
-	if (time >= 15) {
-		res = "(مساء الخير)";
-	}
-	if (time >= 18) {
-		res = "(مساء الخير)";
-	}
-	return res;
-}
-
 function clockString(ms) {
-	let h = isNaN(ms) ? "--" : Math.floor(ms / 3600000);
-	let m = isNaN(ms) ? "--" : Math.floor(ms / 60000) % 60;
-	let s = isNaN(ms) ? "--" : Math.floor(ms / 1000) % 60;
-	return [h, " H ", m, " M ", s, " S "]
-		.map((v) => v.toString().padStart(2, 0))
-		.join("");
+  const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
+  const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
+  const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
 }
+async function genProfile(conn, m) {
+  let font = await jimp.loadFont('./names.fnt'),
+    mask = await jimp.read('https://i.imgur.com/552kzaW.png'),
+    welcome = await jimp.read(thumbnailUrl.getRandom()),
+    avatar = await jimp.read(await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')),
+    status = (await conn.fetchStatus(m.sender).catch(console.log) || {}).status?.slice(0, 30) || 'Not Detected'
 
-function pickRandom(arr) {
-	return arr[Math.floor(Math.random() * arr.length)];
+    await avatar.resize(460, 460)
+    await mask.resize(460, 460)
+    await avatar.mask(mask)
+    await welcome.resize(welcome.getWidth(), welcome.getHeight())
+
+    await welcome.print(font, 550, 180, 'Name:')
+    await welcome.print(font, 650, 255, m.pushName.slice(0, 25))
+    await welcome.print(font, 550, 340, 'About:')
+    await welcome.print(font, 650, 415, status)
+    await welcome.print(font, 550, 500, 'Number:')
+    await welcome.print(font, 650, 575, PhoneNumber('+' + m.sender.split('@')[0]).getNumber('international'))
+    return await welcome.composite(avatar, 50, 170).getBufferAsync('image/png')
 }
