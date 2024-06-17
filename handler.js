@@ -99,7 +99,8 @@ if (!isNumber(user.regTime)) user.regTime = -1
 if (!isNumber(user.semangka)) user.semangka = 0
 if (!isNumber(user.stroberi)) user.stroberi = 0
 }
-	              		    
+	
+if (!isNumber(user.counterPrivate)) user.counterPrivate = 0	                    		    
 if (!isNumber(user.afk)) user.afk = -1
 //if (!('autolevelup' in user))  user.autolevelup = true
 if (!isNumber(user.reporte)) user.reporte = 0
@@ -518,6 +519,7 @@ if (!user.rtrofi) user.rtrofi = 'Bronce'
 } else
 global.db.data.users[m.sender] = {
 midLanguage: 0,
+counterPrivate: 0,
 afk: -1,
 afkReason: '',
 reporte: 0,
@@ -1203,7 +1205,8 @@ if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner
 if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
 if (m.text && user.banned && !isROwner) {
 if (user.antispam > 2) return
-m.reply(`🚫 *ESTÁ BANEADO(A), NO PUEDE USAR LOS COMANDOS*\n📑 *MOTIVO: ${user.messageSpam === 0 ? 'NO ESPECIFICADO' : user.messageSpam}*\n⚠️ \`\`\`SI ESTE BOT ES CUENTA OFICIAL Y TIENE EVIDENCIA QUE RESPALDE QUE ESTE MENSAJE ES UN ERROR, PUEDE EXPONER SU CASO EN:\`\`\`👉 *${ig}*\n👉 ${asistencia}`)
+m.reply(`🚫 لا يمكنه استخدام البوت تم تبنيدك للتواصل
+:\`\`\`👉 *${ig}*\n👉 +212696262219`)
 user.antispam++	
 return
 }
@@ -1265,20 +1268,18 @@ m.reply('Exp limit') // Hehehe
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
 //this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
-this.sendMessage(m.chat, {text: `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: '  𝗦𝘂𝗽𝗲𝗿 JEEN - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 continue     
 }
 			
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
-//this.reply(m.chat, `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`, m)
-continue //Sin límite
-}
-if (plugin.level > _user.level) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
-//this.reply(m.chat, `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`, m)
-continue // Si no se ha alcanzado el nivel
+          mconn.conn.reply(m.chat, `*لقد نفد الماس الخاص بك، يمكنك شراء المزيد باستخدام الأمر: ${usedPrefix}buyall*`, m);
+          continue; 
+        }
+        if (plugin.level > _user.level) {
+          mconn.conn.reply(m.chat, `*It is required to have the level ${plugin.level}  to be able to use the command. Your current level is${_user.level},use the command  ${usedPrefix}lvl to raise your level with XP.*`, m);
+          continue;
 }
 let extra = {
 match,
@@ -1332,7 +1333,7 @@ await plugin.after.call(this, m, extra)
 console.error(e)
 }}
 if (m.limit)
-m.reply(+m.limit + lenguajeGB.smsCont8())
+m.reply('*[ 💎 ] Will be used' + +m.limit + ' diamond(s) (limits).*');
 }
 if (m.money)
 m.reply(+m.money + ' 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🐱 𝙐𝙎𝘼𝘿𝙊(𝙎)')  
@@ -1430,32 +1431,17 @@ pp = await this.profilePictureUrl(user, 'image')
 let apii = await this.getFile(pp)                                      
 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {} 
 const isBotAdminNn = botTt2?.admin === "admin" || false
-text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 😻') :
-(chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+text = (action === 'add' ?  (chat.sWelcome || this.welcome || conn.welcome || '*مرحبا بك أيها العضو الجديد في المجموعة*, @user ! \n \n *معلومات البوت*\n\n channel https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r \n\n instagram \n www.instagram.com/majnon._.98\n\n JEEN BOT').replace('@subject', await m.conn.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*without description*') :
+(chat.sBye || this.bye || conn.bye || '*لقد غادر هاذا العضو قبل قليل*, @user \n \n *معلومات البوت*\n\n channel https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r \n\n instagram \n www.instagram.com/majnon._.98\n\nJEEN BOT')).replace('@user', '@' + user.split('@')[0]);
 			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
-const prefijosPredeterminados = [1, 2, 4, 6, 7, 8, 9] // Puedes editar que usuarios deseas que se eliminen si empieza por algunos de los números
-const rutaArchivo = './prefijos.json'
-let prefijos = []
-const existeArchivo = fs.existsSync(rutaArchivo)
-if (existeArchivo) {
-try {
-const contenido = fs.readFileSync(rutaArchivo, 'utf-8')
-prefijos = JSON.parse(contenido)
-} catch (error) {
-console.log('Error "prefijos.json": ', error)
-return
-}} else {
-prefijos = prefijosPredeterminados
-}
-const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(prefijo.toString()))
-if (comienzaConPrefijo) {
-let texto = mid.mAdvertencia + mid.mFake2(user)
-await conn.sendMessage(id, { text: texto, mentions: [user] })
-let responseb = await conn.groupParticipantsUpdate(id, [user], 'remove')
+const numerosPermitidos = ["1", "2", "4", "6", "7", "8", "9"] //PUEDES EDITAR LOS USUARIOS QUE SE ELIMINARÁN SI EMPIEZA POR CUALQUIER DE ESOS NÚMEROS	
+if (numerosPermitidos.some(num => user.startsWith(num))) {	
+this.sendMessage(id, { text:`*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${user.split("@")[0]} ${lenguajeGB['smsInt2']()}*`, mentions: [user] }, { quoted: null });          
+let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
 if (responseb[0].status === "404") return      
-}}
-	
+return    
+}}    
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 this.sendMessage(id, { text: text, 
 contextInfo:{
@@ -1466,7 +1452,7 @@ mentionedJid:[user],
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
 "thumbnail": apii.data, 
-"title": [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(),
+"title": [wm, 'follow channel ' + gt + ' 😻', '🌟 https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
 sourceUrl: accountsgb }}}, { quoted: fkontak2 })
@@ -1511,65 +1497,77 @@ await this.sendMessage(id, { text, mentions: this.parseMention(text) })
 }}
 
 export async function callUpdate(callUpdate) {
-let isAnticall = global.db.data.settings[this.user.jid].antiCall  
-if (!isAnticall) return
-for (let nk of callUpdate) { 
-if (nk.isGroup == false) {
-if (nk.status == "offer") {
-let callmsg = await this.reply(nk.from, `${lenguajeGB['smsCont15']()} *@${nk.from.split('@')[0]}*, ${nk.isVideo ? lenguajeGB.smsCont16() : lenguajeGB.smsCont17()} ${lenguajeGB['smsCont18']()}`, false, { mentions: [nk.from] })
-//let data = global.owner.filter(([id, isCreator]) => id && isCreator)
-//await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
-await this.updateBlockStatus(nk.from, 'block')
-}}}}
+  const isAnticall = global.db.data.settings[mconn.conn.user.jid].antiCall;
+  if (!isAnticall) return;
+  for (const nk of callUpdate) {
+    if (nk.isGroup == false) {
+      if (nk.status == 'offer') {
+        const callmsg = await mconn.conn.reply(nk.from, `Hello *@${nk.from.split('@')[0]}*, las ${nk.isVideo ? 'video calls' : 'calls'} are not allowed, you will be blocked.\n-\n If you accidentally called contact my creator to unblock you!`, false, {mentions: [nk.from]});
+        // let data = global.owner.filter(([id, isCreator]) => id && isCreator)
+        // await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
+        const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;JEEN;;;\nFN:BOT\nORG:Majnon\nTITLE:\nitem1.TEL;waid=212696262219:212696262219\nitem1.X-ABLabel:Majnon\nX-WA-BIZ-DESCRIPTION:[❗] contact Majnon\nEND:VCARD`;
+        await mconn.conn.sendMessage(nk.from, {contacts: {displayName: 'JEEN', contacts: [{vcard}]}}, {quoted: callmsg});
+        await mconn.conn.updateBlockStatus(nk.from, 'block');
+      }
+    }
+  }
+}
 
 export async function deleteUpdate(message) {
-try {
-const { fromMe, id, participant } = message
-if (fromMe) return 
-let msg = this.serializeM(this.loadMessage(id))
-let chat = global.db.data.chats[msg?.chat] || {}
-if (!chat?.delete) return 
-if (!msg) return 
-if (!msg?.isGroup) return 
-const antideleteMessage = `*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 𓃠*
-${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
-${lenguajeGB['smsCont21']()}
-*╰━━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━╯*`.trim();
-await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
-this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
-} catch (e) {
-console.error(e)
-}}
+let d = new Date(new Date + 3600000)
+let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })
+ let time = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
+    try {
+        const { fromMe, id, participant } = message
+        if (fromMe) return 
+        let msg = mconn.conn.serializeM(mconn.conn.loadMessage(id))
+	let chat = global.db.data.chats[msg?.chat] || {}
+	if (!chat?.antidelete) return 
+        if (!msg) return 
+	if (!msg?.isGroup) return 
+	const antideleteMessage = `
+┏━━━━━━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━━━━━━
+*■ User:* @${participant.split`@`[0]}
+*■ Hour:* ${time}
+*■ Date:* ${date}
+*■ Sending the deleted message...* *■ To disable this feature, type the command:* *—◉ #disable antidelete*
+┗━━━━━━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━━━━━━`.trim();
+        await mconn.conn.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
+        mconn.conn.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+    } catch (e) {
+        console.error(e)
+    }
+}
 
 global.dfail = (type, m, conn) => {
-let msg = {
-rowner: lenguajeGB['smsRowner'](),
-owner: lenguajeGB['smsOwner'](),
-mods: lenguajeGB['smsMods'](),
-premium: lenguajeGB['smsPremium'](),
-group: lenguajeGB['smsGroup'](),
-private: lenguajeGB['smsPrivate'](),
-admin: lenguajeGB['smsAdmin'](),
-botAdmin: lenguajeGB['smsBotAdmin'](),
-unreg: lenguajeGB['smsUnreg'](),
-restrict: lenguajeGB['smsRestrict'](),
-}[type]
-	
-//if (msg) return m.reply(msg)
-	
-let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
-if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
-}
+  const msg = {
+ rowner: '*فقط يمكن للمالك إستخدام هاذا الأمر.*',
+ owner: '*هذا الأمر يمكن استخدامه فقط من قبل مالك البوت.*',
+ mods: '*هذا الأمر يمكن استخدامه فقط من قبل المشرفين ومالك البوت.*',
+ premium: '*هذا الأمر يمكن استخدامه فقط من قبل المستخدمين المميزين ومالك البوت.*',
+ group: '*هذا الأمر يمكن استخدامه فقط في المجموعات.*',
+ private: '*هذا الأمر يمكن استخدامه فقط في الدردشة الخاصة للبوت.*',
+ admin: '*هذا الأمر يمكن استخدامه فقط من قبل مشرفي المجموعة.*',
+ botAdmin: '*لاستخدام هذا الأمر يجب أن يكون البوت مشرفًا في المجموعة.*',
+ unreg: '*لاستخدام هذا الأمر يجب أن تكون مسجل.*\n\n*[ 💡 ] استخدم الأمر:* _/make-account اسم.عمر_ *للتسجيل.*',
+ restrict: '*تم تعطيل هذا الأمر من قبل مالك البوت.*',
+  }[type];
+  const aa = {quoted: m, userJid: conn.user.jid};
+  const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: msg, contextInfo: {externalAdReply: {title: '*تحذير هاذا الأمر لايمكن إستخدامه*', body: 'JEEN', thumbnail: imagen1, sourceUrl: 'https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r'}}}}, aa);
+  if (msg) return conn.relayMessage(m.chat, prep.message, {messageId: prep.key.id});
+};
 
 const file = global.__filename(import.meta.url, true);
 watchFile(file, async () => {
-unwatchFile(file)
-console.log(chalk.redBright('Update \'handler.js\''));
-//if (global.reloadHandler) console.log(await global.reloadHandler());
+  unwatchFile(file);
+  console.log(chalk.redBright('Update \'handler.js\''));
+  if (global.reloadHandler) console.log(await global.reloadHandler());
   
-if (global.conns && global.conns.length > 0 ) {
-const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
-for (const userr of users) {
-userr.subreloadHandler(false)
-}}});
+  if (global.conns && global.conns.length > 0 ) {
+    const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
+    for (const userr of users) {
+      userr.subreloadHandler(false)
+    }
+  }
+  
+});
