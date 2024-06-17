@@ -560,7 +560,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 601,
+      "exp": 617,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1019,7 +1019,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1190,
+      "exp": 1210,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1365,7 +1365,7 @@
       "lastrampok": 0,
       "lastsda": 0,
       "lastwar": 0,
-      "spam": 1718625724639,
+      "spam": 1718630184955,
       "pancing": 0,
       "pertambangan": 0,
       "pertanian": 0,
@@ -11747,7 +11747,7 @@
       "lelebakar": 0,
       "leleg": 0,
       "level": 0,
-      "limit": -5,
+      "limit": 0,
       "limitjoinfree": 1,
       "lion": 0,
       "lionexp": 0,
@@ -18447,6 +18447,18 @@
       "success": 1,
       "last": 1718629805372,
       "lastSuccess": 1718629805372
+    },
+    "_config-info.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1718630173731,
+      "lastSuccess": 1718630173731
+    },
+    "_config-checkdata.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1718630185287,
+      "lastSuccess": 1718630185287
     }
   },
   "msgs": {},
