@@ -1019,7 +1019,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 508,
+      "exp": 538,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1365,7 +1365,7 @@
       "lastrampok": 0,
       "lastsda": 0,
       "lastwar": 0,
-      "spam": 1718723824201,
+      "spam": 1718726989418,
       "pancing": 0,
       "pertambangan": 0,
       "pertanian": 0,
@@ -52755,7 +52755,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 79,
+      "exp": 95,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -57625,10 +57625,10 @@
       "lastSuccess": 1718663438826
     },
     "config-sf.js": {
-      "total": 10,
-      "success": 10,
-      "last": 1718723806064,
-      "lastSuccess": 1718723806064
+      "total": 11,
+      "success": 11,
+      "last": 1718726984743,
+      "lastSuccess": 1718726984743
     },
     "_config-make-account.js": {
       "total": 7,
@@ -57791,6 +57791,12 @@
       "success": 3,
       "last": 1718723824566,
       "lastSuccess": 1718723824566
+    },
+    "setppbot.js": {
+      "total": 2,
+      "success": 0,
+      "last": 1718726989419,
+      "lastSuccess": 0
     }
   },
   "msgs": {},
