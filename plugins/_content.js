@@ -54,9 +54,9 @@ global.redesMenu = [canal1, canal2, canal3, canal4, soporteGB, grupo1, grupo2, g
 global.accountsgb = [canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths, md, asistencia].getRandom()
 
 var canalesInfo = [
-{ link: canal1, id: "120363160031023229@newsletter", name: "MEE5 " },
-{ link: canal2, id: "120363169294281316@newsletter", name: "MEE5" },
-{ link: canal3, id: "120363203805910750@newsletter", name: "MEE5" } 
+{ link: canal1, id: "120363160031023229@newsletter", name: "JEEN " },
+{ link: canal2, id: "120363169294281316@newsletter", name: "JEN" },
+{ link: canal3, id: "120363203805910750@newsletter", name: "JEEN" } 
 ]
 var indiceAleatorio = Math.floor(Math.random() * canalesInfo.length)
 var channelRD = canalesInfo[indiceAleatorio]
@@ -121,14 +121,13 @@ let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.
 let fgif = {key: {participant : '0@s.whatsapp.net'}, message: {"videoMessage": { "title": wm, "h": `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./media/menus/Menu3.jpg')}}}
                              
 let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🙂', body: 'support group' , sourceUrl: redesMenu, thumbnail: await(await fetch(gataMenu)).buffer() }}}
-let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: ' MEE5-MD ', thumbnailUrl: gataMenu, sourceUrl: accountsgb }}}
+let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: ' JEEN-MD ', thumbnailUrl: gataMenu, sourceUrl: accountsgb }}}
 let dos = [enlace, enlace2]  
 
-global.wait = "⌛ *`Cargando...`*\n*✪✦✦⊹⊹⊹⊹⊹⊹⊹⊹✪* `20%`"
-global.waitt = "⏳ *`Cargando....`*\n*✪✦✦✦✦⊹⊹⊹⊹⊹⊹✪* `40%`"
-global.waittt = "⌛ *`Cargando...`*\n*✪✦✦✦✦✦✦⊹⊹⊹⊹✪* `60%`"
-global.waitttt = "⏳ *`Cargando....`*\n*✪✦✦✦✦✦✦✦✦⊹⊹✪* `80%`"
-global.waittttt = "⌛ *`Procesando...`*\n*✪✦✦✦✦✦✦✦✦✦✦✪* `100%`"
+global.wait = "_*Please wait...*_";
+global.waitt = "_*Please wait..*_";
+global.waittt = "_*Please wait.*_";
+global.waitttt = "_*Please wait*_";
 
 global.destraba = `⏰DESTRABA⏰*
 li.DESTRAVip.to
@@ -153,4 +152,3 @@ await conn.sendMessage(m.chat, { text: mensajes[i], edit: key })
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]
   }
-  

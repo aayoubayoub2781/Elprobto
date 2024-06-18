@@ -51,7 +51,7 @@ const searchHandler = async (m, { conn, prefix }) => {
 
         const interactiveMessage = {
             body: { text: `Search results for: ${query}` },
-            footer: { text: "@not_es.x4r" },
+            footer: { text: "@majnon._.98" },
             nativeFlowMessage: {
                 buttons: [{
                     name: "single_select",
