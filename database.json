@@ -12031,7 +12031,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 81,
+      "exp": 124,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -12377,7 +12377,7 @@
       "lastrampok": 0,
       "lastsda": 0,
       "lastwar": 0,
-      "spam": 1718656397303,
+      "spam": 1718699704316,
       "pancing": 0,
       "pertambangan": 0,
       "pertanian": 0,
@@ -24833,7 +24833,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 191,
+      "exp": 206,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -25179,7 +25179,7 @@
       "lastrampok": 0,
       "lastsda": 0,
       "lastwar": 0,
-      "spam": 1718638220896,
+      "spam": 1718698685182,
       "pancing": 0,
       "pertambangan": 0,
       "pertanian": 0,
@@ -42682,7 +42682,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 3,
+      "exp": 8,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -53154,10 +53154,10 @@
       "lastSuccess": 1718658438502
     },
     "ai-apk.js": {
-      "total": 86,
-      "success": 86,
-      "last": 1718674052191,
-      "lastSuccess": 1718674052191
+      "total": 88,
+      "success": 88,
+      "last": 1718699704316,
+      "lastSuccess": 1718699704316
     },
     "ai-play.js": {
       "total": 8,
@@ -53166,10 +53166,10 @@
       "lastSuccess": 1718663948051
     },
     "ai-apk3.js": {
-      "total": 138,
-      "success": 136,
-      "last": 1718668601108,
-      "lastSuccess": 1718668601108
+      "total": 141,
+      "success": 139,
+      "last": 1718699633489,
+      "lastSuccess": 1718699633489
     },
     "apkpure.js": {
       "total": 8,
