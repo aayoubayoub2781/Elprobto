@@ -41,7 +41,7 @@ URL:
             ], 
             null, 
             [
-                ['follow channel', `https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r`]
+                ['follow channel', `https://whatsapp.com/channel/0029VaiJnhbD38CbP5YcSK0K`]
             ], m, {
                 contextInfo: {
                     mentionedJid: [m.sender]

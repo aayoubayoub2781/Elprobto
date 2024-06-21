@@ -39,7 +39,7 @@ const searchHandler = async (m, { conn, prefix }) => {
             ], 
             null, 
             [
-                ['Follow channel', `https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r`]
+                ['Follow channel', `https://whatsapp.com/channel/0029VaiJnhbD38CbP5YcSK0K`]
             ], 
             m, 
             {
