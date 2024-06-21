@@ -1432,7 +1432,7 @@ let apii = await this.getFile(pp)
 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {} 
 const isBotAdminNn = botTt2?.admin === "admin" || false
 text = (action === 'add' ?  (chat.sWelcome || this.welcome || conn.welcome || '*مرحبا بك أيها العضو الجديد في المجموعة*, @user ! \n \n *معلومات البوت*\n\n channel https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r \n\n instagram \n www.instagram.com/majnon._.98\n\n JEEN BOT').replace('@subject', await m.conn.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*without description*') :
-(chat.sBye || this.bye || conn.bye || '*لقد غادر هاذا العضو قبل قليل*, @user \n \n *معلومات البوت*\n\n channel https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r \n\n instagram \n www.instagram.com/majnon._.98\n\nJEEN BOT')).replace('@user', '@' + user.split('@')[0]);
+(chat.sBye || this.bye || conn.bye || '*لقد غادر هاذا العضو قبل قليل*, @user \n \n *معلومات البوت*\n\n channel https://whatsapp.com/channel/0029VaiJnhbD38CbP5YcSK0K \n\n instagram \n www.instagram.com/majnon._.98\n\nJEEN BOT')).replace('@user', '@' + user.split('@')[0]);
 			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
 const numerosPermitidos = ["1", "2", "4", "6", "7", "8", "9"] //PUEDES EDITAR LOS USUARIOS QUE SE ELIMINARÁN SI EMPIEZA POR CUALQUIER DE ESOS NÚMEROS	
@@ -1452,7 +1452,7 @@ mentionedJid:[user],
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
 "thumbnail": apii.data, 
-"title": [wm, 'follow channel ' + gt + ' 😻', '🌟 https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r'].getRandom(),
+"title": [wm, 'follow channel ' + gt + ' 😻', '🌟 https://whatsapp.com/channel/0029VaiJnhbD38CbP5YcSK0K'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
 sourceUrl: accountsgb }}}, { quoted: fkontak2 })
@@ -1553,7 +1553,7 @@ global.dfail = (type, m, conn) => {
  restrict: '*تم تعطيل هذا الأمر من قبل مالك البوت.*',
   }[type];
   const aa = {quoted: m, userJid: conn.user.jid};
-  const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: msg, contextInfo: {externalAdReply: {title: '*تحذير هاذا الأمر لايمكن إستخدامه*', body: 'JEEN', thumbnail: imagen1, sourceUrl: 'https://whatsapp.com/channel/0029Vae5S5aBVJl6vQR65f2r'}}}}, aa);
+  const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: msg, contextInfo: {externalAdReply: {title: '*تحذير هاذا الأمر لايمكن إستخدامه*', body: 'JEEN', thumbnail: imagen1, sourceUrl: 'https://whatsapp.com/channel/0029VaiJnhbD38CbP5YcSK0K'}}}}, aa);
   if (msg) return conn.relayMessage(m.chat, prep.message, {messageId: prep.key.id});
 };
 
