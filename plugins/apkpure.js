@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 *Package:* ${res.path}
 *File Size:* ${res.size}
 
-> By not_es.x4r
+> By majnon._.98
 `;
 
     const fileName = `${res.path}.${res.format}`;
