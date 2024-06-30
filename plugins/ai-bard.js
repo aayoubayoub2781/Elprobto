@@ -7,9 +7,9 @@ if (!text) return conn.reply(m.chat, `🎌 *Ingresé una petición*\n\nEjemplo, 
 try {
 
 conn.sendPresenceUpdate('composing', m.chat)
-var apii = await fetch(`https://aemt.me/bard?text=${text}`)
+var apii = await fetch(`https://delirius-api-oficial.vercel.app/api/chatgpt?q=hi}`)
 var res = await apii.json()
-await m.reply(res.result)
+await m.reply(res.data)
 
 } catch (error) {
 console.error(error)
