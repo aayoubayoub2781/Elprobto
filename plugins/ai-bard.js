@@ -2,12 +2,12 @@ import fetch from 'node-fetch'
 
 var handler = async (m, { text,  usedPrefix, command }) => {
 
-if (!text) return conn.reply(m.chat, `🎌 *Ingresé una petición*\n\nEjemplo, !bard Conoces CuriosityBot-MD?`, m, fake, )
+if (!text) return conn.reply(m.chat, `🎌 *Ingresé una petición*\n\nEx: hi jeen`, m, fake, )
  
 try {
 
 conn.sendPresenceUpdate('composing', m.chat)
-var apii = await fetch(`https://delirius-api-oficial.vercel.app/api/chatgpt?q=hi}`)
+var apii = await fetch(`https://delirius-api-oficial.vercel.app/api/chatgpt?q=${text}`)
 var res = await apii.json()
 await m.reply(res.data)
 
