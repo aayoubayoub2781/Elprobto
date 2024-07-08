@@ -132,8 +132,8 @@ handler.limit = 0
 }}
 handler.command = ['ytmp3', 'ytmp4']
 handler.register = true;
-handler.exp = 100
-handler.limit = 20
+handler.exp = 10
+handler.limit = 8
 export default handler
 
 async function search(query, options = {}) {
