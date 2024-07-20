@@ -7,33 +7,33 @@ let handler = async (m, { conn, usedPrefix, __dirname, text, isPrems }) => {
     try {
         let senderTag = m.pushName || conn.getName(m.sender);
         let imageBuffer = await genProfile(); // Generate image without passing conn or m
-        m.react('💻');
+        m.react('✨');
 
         const buttonParamsJson = JSON.stringify({
             title: "Show options",
             description: "Get information through official means about mee5",
             sections: [
                 {
-                    title: "JEEN more ", highlight_label: "Popular",
+                    title: "Ayoub more ", highlight_label: "Popular",
                     rows: [
                         { header: "Account Commands", title: "", description: "all account commands", id: usedPrefix + "accmenu" }
                     ]
                 },
                 {
-                    title: "JEEN downloads", highlight_label: "Popular",
+                    title: "Ayoub downloads", highlight_label: "Popular",
                     rows: [
                         { header: "Download Commands", title: "", description: "All download commands", id: usedPrefix + "downmenu" }
                     ]
                 },
                 {
-                    title: "JEEN Ai ", highlight_label: "Popular",
+                    title: "Ayoub Ai ", highlight_label: "Popular",
                     rows: [
                         { header: "Ai Commands", title: "", description: "all ai commands", id: usedPrefix + "aimenu" },
                         { header: "Islam Commands", title: "", description: "all islamic commands", id: usedPrefix + "islammenu" }
                     ]
                 },
                 {
-                    title: "JEEN Other ", highlight_label: "Popular",
+                    title: "Ayoub Other ", highlight_label: "Popular",
                     rows: [
                         { header: "Other Commands", title: "", description: "all Other commands", id: usedPrefix + "menuother" },
                         { header: "info", title: "", description: "Info user", id: usedPrefix + "info" }
@@ -49,8 +49,8 @@ let handler = async (m, { conn, usedPrefix, __dirname, text, isPrems }) => {
         });
 
         const interactiveMessage = {
-            body: { text: `Hello 👋, ${senderTag}` },
-            footer: { text: "@majnon._.98" },
+            body: { text: `سلام 👋, ${senderTag}` },
+            footer: { text: "Ayoub shop √" },
             header: {
                 hasMediaAttachment: true,
                 ...await prepareWAMessageMedia({
@@ -84,7 +84,7 @@ export default handler;
 async function genProfile() {
     try {
         // Generate an image using JIMP
-        const image = await jimp.read('https://telegra.ph/file/360b6eedd3264dad73530.jpg'); // Use your image URL
+        const image = await jimp.read('https://telegra.ph/file/607304d2b6aff9a98c3d5.png'); // Use your image URL
         image.resize(256, 256); // Resize the image if necessary
         return await image.getBufferAsync(jimp.MIME_JPEG); // Return the image buffer
     } catch (e) {
