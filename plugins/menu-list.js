@@ -7,33 +7,33 @@ let handler = async (m, { conn, usedPrefix, __dirname, text, isPrems }) => {
     try {
         let senderTag = m.pushName || conn.getName(m.sender);
         let imageBuffer = await genProfile(); // Generate image without passing conn or m
-        m.react('💻');
+        m.react('✍️');
 
         const buttonParamsJson = JSON.stringify({
             title: "Show options",
             description: "Get information through official means about mee5",
             sections: [
                 {
-                    title: "JEEN more ", highlight_label: "Popular",
+                    title: "AYOUB more ", highlight_label: "Popular",
                     rows: [
                         { header: "Account Commands", title: "", description: "all account commands", id: usedPrefix + "accmenu" }
                     ]
                 },
                 {
-                    title: "JEEN downloads", highlight_label: "Popular",
+                    title: "AYOUB downloads", highlight_label: "Popular",
                     rows: [
                         { header: "Download Commands", title: "", description: "All download commands", id: usedPrefix + "downmenu" }
                     ]
                 },
                 {
-                    title: "JEEN Ai ", highlight_label: "Popular",
+                    title: "AYOUB Ai ", highlight_label: "Popular",
                     rows: [
                         { header: "Ai Commands", title: "", description: "all ai commands", id: usedPrefix + "aimenu" },
                         { header: "Islam Commands", title: "", description: "all islamic commands", id: usedPrefix + "islammenu" }
                     ]
                 },
                 {
-                    title: "JEEN Other ", highlight_label: "Popular",
+                    title: "AYOUB Other ", highlight_label: "Popular",
                     rows: [
                         { header: "Other Commands", title: "", description: "all Other commands", id: usedPrefix + "menuother" },
                         { header: "info", title: "", description: "Info user", id: usedPrefix + "info" }
@@ -50,7 +50,7 @@ let handler = async (m, { conn, usedPrefix, __dirname, text, isPrems }) => {
 
         const interactiveMessage = {
             body: { text: `Hello 👋, ${senderTag}` },
-            footer: { text: "@majnon._.98" },
+            footer: { text: "+212671648947" },
             header: {
                 hasMediaAttachment: true,
                 ...await prepareWAMessageMedia({
